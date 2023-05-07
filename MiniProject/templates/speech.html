@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <head>
 	<title>
-		File Summarizer
+		Speech Summarizer
 	</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -106,7 +106,7 @@
 					<li class="active"><a href="/file">File</a></li>
 					<li class="active"><a href="/image">Image</a></li>
                     <li class="active"><a href="/url">url</a></li>
-					<li class="active"><a href="/speech">speech</a></li>
+                    <li class="active"><a href="/speech">speech</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 				</ul>
@@ -116,43 +116,18 @@
 
 	<section class = "input container" id = "input">
 		<div class="intro jumbotron">
-			<h2>File Summarizer</h2>
+			<h2>Speech Summarizer</h2>
 			<p> You can summarize any text from an article, journal, story
 				and more by simply copying and pasting that text below. The algorithm for 
 				the summarazier will display the output summary based on keywords extracted from the text.
 			</p>			
 		</div>
 		<div class="form-container jumbotron" id="sum-section">
-            <form action = "/file" id="sumform" method = "POST">
-				<!-- <form action="/file" method = "POST">
-					<h2> Upload your file: </h2>
-					<p>
-						<input type="file" accept="image/jpeg,image/gif,image/png,application/pdf,image/x-eps" name="file-open">
-					</p>
-					<p>
-						<input type="submit">
-					</p>
-				  </form> -->
-				  
+            <form method="post" enctype="multipart/form-data">
                 <h2> Upload your file: </h2>
-			    <p>
-                    <input name="file-open" type="text">
-                </p>
-                <p>
-                    Enter the page number of the file:
-                </p>
-                <p>
-					<input type="number" name = "page" pattern = 
-					"[0-9]+" min = "0" max = "10000" required >
-				</p>
-                <p>Maximum number of characters you want it to be summarised in: </p>
-				<p>
-					<input type="number" name = "num_sentences" pattern = 
-					"[0-9]+" min = "1" max = "10000" required >
-				</p>
-				<p>
-					<input type="submit"  class="btn btn-success btn-md" value="Submit">
-				</p>
+                    <input type="file" name="file"/>
+                    <br>
+                    <input type="submit" id="submitButton" value="Transcribe"/>
 				<h2>Summarized Text: </h2>
 				<textbox name="output_text" id="output_text" maxlength="50000" style="width:600px; 
 				height:250px">
